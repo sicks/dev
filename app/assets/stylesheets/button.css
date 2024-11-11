@@ -1,0 +1,48 @@
+.btn, a.btn {
+  flex: 0 0 auto;
+  padding: 0.5625rem 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  background: var(--base03);
+  color: var(--base3);
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  white-space: nowrap;
+
+  &.wide {
+    width: 100%;
+    text-align: center;
+  }
+  &.fill {
+    flex: 1 0 auto;
+    text-align: center;
+  }
+
+  &:hover {
+    background: var(--info);
+  }
+
+  &.success:hover {
+    background: var(--success);
+  }
+
+  &.alert:hover {
+    background: var(--alert);
+  }
+
+  &.error:hover {
+    background: var(--error);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      background: var(--error);
+    }
+  }
+}
