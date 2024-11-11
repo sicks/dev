@@ -1,0 +1,12 @@
+h1 = t(".title")
+
+= form_with url: password_path(params[:token]), method: :put do |form|
+  .field
+    = form.password_field :password, required: true,
+      placeholder: t(".password_placeholder"), maxlength: 72
+  .field
+    = form.password_field :password_confirmation, required: true,
+      placeholder: t(".password_confirmation_placeholder"), maxlength: 72
+  .actions
+    = form.submit t(".submit"), class: :btn
+

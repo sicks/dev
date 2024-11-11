@@ -28,6 +28,23 @@
 #       enabled: "ON"
 
 en:
+  sessions:
+    new:
+      title: Log in
+      email_address_placeholder: Enter your email address
+      password_placeholder: Enter your password
+      submit: Sign in
+      forgot_password: Forgot password?
+  passwords:
+    new:
+      title: Forgot your password?
+      email_field_placeholder: Enter your email address
+      submit: Email reset instructions
+    edit:
+      title: Update your password
+      password_placeholder: Enter new password
+      password_confirmation_placeholder: Repeat new password
+      submit: Save
   kitchen:
     show:
       anchor: Anchor Element
@@ -37,3 +54,4 @@ en:
       header: Header
       ol_li: Ordered List Item
       ul_li: Unordered List Item
+
