@@ -1,0 +1,41 @@
+.centered-container
+  div.mb.flex.gap
+    = tag.h1 t(".header")
+    = tag.h2 t(".header")
+    = tag.h3 t(".header")
+    = tag.h4 t(".header")
+    = tag.h5 t(".header")
+    = tag.h6 t(".header")
+
+  div.mb.flex.gap.wrap
+    = link_to t('.anchor_btn'), kitchen_path(:sink), class: :btn
+    = button_tag t('.form_btn'), class: %i[btn fill]
+
+  p = t('.bacon')
+
+  div.mb
+    = form_with url: kitchen_index_path, method: :post, class: %i[flex gap wrap] do |f|
+      - %i[notice success alert error].each do |type|
+        = f.submit type, class: [type, :btn, :fill], params: { type: }
+
+  ul
+    - 3.times do
+      li = t(".ul_li")
+
+  ol
+    - 3.times do
+      li = t(".ol_li")
+
+  .mb
+    = link_to t(".anchor"), kitchen_path(:sink)
+
+  pre.mb
+    code
+      | class Test
+          def some_method
+          end
+        end
+
+  - 10.times do
+    p = t('.bacon')
+

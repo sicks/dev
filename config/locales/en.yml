@@ -28,4 +28,12 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  kitchen:
+    show:
+      anchor: Anchor Element
+      anchor_btn: Anchor Button
+      bacon: Bacon ipsum dolor amet picanha tenderloin cupim pastrami flank sirloin ball tip sausage corned beef swine pork. T-bone meatloaf filet mignon meatball, bresaola pork loin chuck shank. Venison sirloin turducken jowl, short ribs tongue fatback pancetta pork chop spare ribs ham hock kielbasa. Capicola brisket swine, andouille beef ribs shank rump meatloaf pastrami chislic pork. Tri-tip hamburger bresaola, porchetta ribeye ham prosciutto. Buffalo drumstick kielbasa fatback, frankfurter ham beef landjaeger strip steak spare ribs tri-tip. Ham biltong hamburger cow chuck kevin fatback pig.
+      form_btn: Form Button
+      header: Header
+      ol_li: Ordered List Item
+      ul_li: Unordered List Item
