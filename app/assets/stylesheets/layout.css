@@ -1,0 +1,89 @@
+.layout {
+  > header {
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  > nav {
+  }
+
+  > main {
+    flex-basis: 100%;
+    max-width: 100vw;
+
+    .scroll {
+      padding: 1rem 1rem;
+
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .layout {
+    display: flex;
+    height: 100vh;
+
+    > header {
+      flex: 0 0 33vw;
+      order: 2;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 20vh;
+
+      & + main {
+        justify-content: flex-end;
+      }
+    }
+
+    > main {
+      order: 1;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+
+      .scroll {
+        padding: 3rem 1rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: var(--base2) transparent;
+
+        &::-webkit-scrollbar, &::-webkit-scrollbar-button {
+          width: 0.3125rem;
+          height: 0.3125rem;
+        }
+
+        &::-webkit-scrollbar-track, &::-webkit-scrollbar-track-piece {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: var(--base2);
+        }
+
+        .content {
+          max-width: 38.25rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 114.75em) {
+  .layout {
+    > header {
+      flex: 0 0 calc((100% - 38.25rem) / 2);
+    }
+  }
+}
+
