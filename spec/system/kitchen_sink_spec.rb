@@ -5,20 +5,20 @@ RSpec.describe "Kitchen Sink", type: :system do
     it "renders the content" do
       visit "/kitchen/sink"
 
-      expect(page).to have_css("h1", text: "Header")
-      expect(page).to have_css("h2", text: "Header")
-      expect(page).to have_css("h3", text: "Header")
-      expect(page).to have_css("h4", text: "Header")
-      expect(page).to have_css("h5", text: "Header")
-      expect(page).to have_css("h6", text: "Header")
-      expect(page).to have_css("p", count: 11)
-      expect(page).to have_css("ul")
-      expect(page).to have_css("ul li", count: 3)
-      expect(page).to have_css("ol")
-      expect(page).to have_css("ol li", count: 3)
-      expect(page).to have_css("pre code")
-      expect(page).to have_css("a", count: 2)
-      expect(page).to have_css("button")
+      expect(page).to have_css(".kitchen-sink h1", text: "Kitchen Sink")
+      expect(page).to have_css(".kitchen-sink h2", text: "Headers")
+      expect(page).to have_css(".kitchen-sink h3", text: "Header 3")
+      expect(page).to have_css(".kitchen-sink h4", text: "Header 4")
+      expect(page).to have_css(".kitchen-sink h5", text: "Header 5")
+      expect(page).to have_css(".kitchen-sink h6", text: "Header 6")
+      expect(page).to have_css(".kitchen-sink p", count: 5)
+      expect(page).to have_css(".kitchen-sink ul")
+      expect(page).to have_css(".kitchen-sink ul li", count: 3)
+      expect(page).to have_css(".kitchen-sink ol")
+      expect(page).to have_css(".kitchen-sink ol li", count: 3)
+      expect(page).to have_css(".kitchen-sink pre code")
+      expect(page).to have_css(".kitchen-sink a", count: 2)
+      expect(page).to have_css(".kitchen-sink button")
     end
 
     specify "flash messages" do
