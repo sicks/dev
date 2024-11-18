@@ -1,33 +1,60 @@
-.centered-container
-  div.mb.flex.gap.wrap
-    = tag.h1 t(".header")
-    = tag.h2 t(".header")
-    = tag.h3 t(".header")
-    = tag.h4 t(".header")
-    = tag.h5 t(".header")
-    = tag.h6 t(".header")
+.kitchen-sink
+  h1.mb Kitchen Sink
+
+  h2.mb Headers
+
+  .mb
+    h3 Header 3
+    h4 Header 4
+    h5 Header 5
+    h6 Header 6
+
+  h2.mb Buttons
 
   div.mb.flex.gap.wrap
-    = link_to t('.anchor_btn'), kitchen_path(:sink), class: :btn
-    = button_tag t('.form_btn'), class: %i[btn fill]
+    = link_to "Anchor Button", kitchen_path(:sink), class: :btn
+    = button_tag "Form Button", class: %i[btn fill]
 
-  p = t('.bacon')
+  h2.mb Forms & Flash messages
 
   div.mb
-    = form_with url: kitchen_index_path, method: :post, class: %i[flex gap wrap] do |f|
-      - %i[notice success alert error].each do |type|
-        = f.submit type, class: [type, :btn, :fill], params: { type: }
+    = form_with url: kitchen_index_path, method: :post do |f|
+      .field
+        = f.label :text_field
+        = f.text_field :text_field, placeholder: "placeholder text"
+      .row
+        .field.grow
+          = f.label :email_field
+          = f.text_field :email_field, placeholder: "some@email.com"
+        .field
+          = f.label :select
+          = f.select :select, options_for_select(%i[one two])
+        .field
+          = f.label :datetime_field
+          = f.datetime_field :datetime
+      .field
+        = f.label :text_area
+        = f.textarea :text_area
+      .actions
+        - %i[notice success alert error].each do |type|
+          = f.submit type, class: [type, :btn, :fill], params: { type: }
+
+  h2.mb Lists
 
   ul
     - 3.times do
-      li = t(".ul_li")
+      li Unordered List Item
 
   ol
     - 3.times do
-      li = t(".ol_li")
+      li Ordered List Item
+
+  h2.mb Links
 
   .mb
-    = link_to t(".anchor"), kitchen_path(:sink)
+    = link_to "Regular Anchor", kitchen_path(:sink)
+
+  h2.mb Code
 
   pre.mb
     code
@@ -36,6 +63,9 @@
           end
         end
 
-  - 10.times do
-    p = t('.bacon')
+  h2 Paragraphs
+
+  - 5.times do
+    p
+      | Bacon ipsum dolor amet picanha tenderloin cupim pastrami flank sirloin ball tip sausage corned beef swine pork. T-bone meatloaf filet mignon meatball, bresaola pork loin chuck shank. Venison sirloin turducken jowl, short ribs tongue fatback pancetta pork chop spare ribs ham hock kielbasa. Capicola brisket swine, andouille beef ribs shank rump meatloaf pastrami chislic pork. Tri-tip hamburger bresaola, porchetta ribeye ham prosciutto. Buffalo drumstick kielbasa fatback, frankfurter ham beef landjaeger strip steak spare ribs tri-tip. Ham biltong hamburger cow chuck kevin fatback pig.
 

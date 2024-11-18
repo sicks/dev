@@ -1,13 +1,14 @@
-h1 = t(".title")
+.session.new
+  h1 = t(".title")
 
-= form_with url: session_path do |form|
-  .field
-    = form.email_field :email_address, required: true, autofocus: true,
-      placeholder: t(".email_address_placeholder"), value: params[:email_address]
-  .field
-    = form.password_field :password, required: true,
-      placeholder: t(".password_placeholder"), maxlength: 72
-  .actions
-    = form.submit t(".submit"), class: :btn
+  = form_with url: session_path do |f|
+    .field
+      = f.email_field :email_address, required: true, autofocus: true,
+        placeholder: t(".email_address_placeholder"), value: params[:email_address], autocomplete: :off
+    .field
+      = f.password_field :password, required: true,
+        placeholder: t(".password_placeholder"), maxlength: 72, autocomplete: :off
+    .actions
+      = link_to t(".forgot_password"), new_password_path
+      = f.submit t(".submit"), class: :btn
 
-= link_to t(".forgot_password"), new_password_path
