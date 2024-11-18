@@ -60,7 +60,7 @@ body {
   color: var(--base00);
   font-family: 'Roboto';
   transition: color 0.3s ease, background-color 0.3s ease;
-  margin: 0 0.25rem;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -94,8 +94,12 @@ h5 {
   font-size: 1.0625rem;
 }
 
-h3, h4, h5 {
+h3, h4 {
   font-weight: 300;
+}
+
+h5 {
+  font-weight: 400;
 }
 
 h6 {
@@ -131,11 +135,6 @@ code {
 }
 
 /* Temporary Utility Classes */
-.centered-container {
-  max-width: 38.25rem;
-  margin: auto;
-}
-
 .mb {
   margin-bottom: 1rem;
 }

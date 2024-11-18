@@ -1,0 +1,11 @@
+.passwords.new
+  h1 = t(".title")
+
+  = form_with url: passwords_path do |f|
+    .field
+      = f.email_field :email_address, required: true, autofocus: true,
+        placeholder: t(".email_field_placeholder"), value: params[:email_address], autocomplete: :off
+    .actions
+      span
+      = f.submit t(".submit"), class: :btn
+

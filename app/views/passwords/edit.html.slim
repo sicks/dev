@@ -1,0 +1,13 @@
+.passwords.edit
+  h1 = t(".title")
+
+  = form_with url: password_path(params[:token]), method: :put do |f|
+    .field
+      = f.password_field :password, required: true,
+        placeholder: t(".password_placeholder"), maxlength: 72, autocomplete: :off
+    .field
+      = f.password_field :password_confirmation, required: true,
+        placeholder: t(".password_confirmation_placeholder"), maxlength: 72, autocomplete: :off
+    .actions
+      = f.submit t(".submit"), class: :btn
+

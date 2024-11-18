@@ -22,8 +22,19 @@ html
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-  = content_tag :body, class: %w[light dark].sample
-    == yield
+  = content_tag :body, class: [:layout, %w[light dark].sample]
+    header
+      h1 = link_to "website/name", root_path
+      nav
+        - if authenticated?
+          = link_to "Logout", session_path, data: { turbo_method: :delete }
+        - else
+          = link_to "Log In", new_session_path
+
+    main
+      .scroll
+        .content
+          == yield
 
     #flash
       = render "flash"
