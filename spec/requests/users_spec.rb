@@ -66,11 +66,7 @@ RSpec.describe "Users", type: :request do
 
   describe "PUT /user" do
     let(:params) do
-      {
-        user: {
-          email_address: "different@email.com",
-        }
-      }
+      { user: { email_address: "different@email.com" } }
     end
 
     context "without authentication" do
