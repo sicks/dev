@@ -2,6 +2,7 @@ module Authentication
   extend ActiveSupport::Concern
 
   included do
+    before_action :set_veneer
     before_action :require_authentication
     helper_method :authenticated?
   end
@@ -48,5 +49,13 @@ module Authentication
     def terminate_session
       Current.session.destroy
       cookies.delete(:session_id)
+    end
+
+    def set_veneer
+      @veneer = Current.veneer = if Veneer.none?
+        Veneer.default(request.host)
+      else
+        Veneer.find_by_host(request.host)
+      end
     end
 end
