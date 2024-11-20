@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = content_for(:title) || @veneer.title
+    title = content_for(:title) || @current_veneer.title
     meta name="viewport" content="width=device-width,initial-scale=1"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta name="mobile-web-app-capable" content="yes"
@@ -22,15 +22,20 @@ html
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-  = content_tag :body, class: [:layout, @veneer.theme]
+  = content_tag :body, class: [:layout, @current_veneer.theme]
     header
-      h1 = link_to @veneer.title, root_path
-      h5 = @veneer.subtitle
+      h1 = link_to @current_veneer.title, root_path
+      h5 = @current_veneer.subtitle
       nav
-        .auth
-          - if authenticated?
+        - if authenticated?
+          .veneer
+            = link_to inline_svg_tag("veneer.svg", class: :icon), veneers_path
+          .user
+            = link_to inline_svg_tag("user.svg", class: :icon), edit_user_path
+          .auth
             = link_to inline_svg_tag("logout.svg", class: :icon), session_path, data: { turbo_method: :delete }
-          - else
+        - else
+          .auth
             = link_to inline_svg_tag("login.svg", class: :icon), new_session_path
 
     main

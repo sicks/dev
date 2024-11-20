@@ -1,0 +1,20 @@
+.veneers.new
+  h1 New Veneer
+
+  = form_with model: @veneer do |f|
+    .row.wrap
+      .field.grow
+        = f.label :host
+        = f.text_field :host, required: true, autocomplete: :off
+      .field
+        = f.label :theme
+        = f.select :theme, options_for_select(%w[dark light], selected: f.object.theme), include_blank: false
+    .field
+      = f.label :title
+      = f.text_field :title, required: true, autocomplete: :off
+    .field
+      = f.label :subtitle
+      = f.text_field :subtitle, required: true, autocomplete: :off
+    .actions
+      span
+      = f.submit class: :btn

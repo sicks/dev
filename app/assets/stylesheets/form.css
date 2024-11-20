@@ -9,6 +9,10 @@ form {
   .row {
     display: flex;
     gap: 1rem;
+
+    &.wrap {
+      flex-wrap: wrap;
+    }
   }
 
   .field {
@@ -37,6 +41,7 @@ form {
   .actions {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }

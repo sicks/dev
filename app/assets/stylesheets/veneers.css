@@ -1,0 +1,16 @@
+.veneers {
+  &.index {
+    .flex {
+      align-items: center;
+
+      h1 {
+        flex-grow: 1;
+      }
+
+      a .icon {
+        height: 2.25rem;
+        width: 2.25rem;
+      }
+    }
+  }
+}
