@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= content_for(:title) || "Dev"
+    title = content_for(:title) || @veneer.title
     meta name="viewport" content="width=device-width,initial-scale=1"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta name="mobile-web-app-capable" content="yes"
@@ -27,10 +27,11 @@ html
       h1 = link_to @veneer.title, root_path
       h5 = @veneer.subtitle
       nav
-        - if authenticated?
-          = link_to "Logout", session_path, data: { turbo_method: :delete }
-        - else
-          = link_to "Log In", new_session_path
+        .auth
+          - if authenticated?
+            = link_to inline_svg_tag("logout.svg", class: :icon), session_path, data: { turbo_method: :delete }
+          - else
+            = link_to inline_svg_tag("login.svg", class: :icon), new_session_path
 
     main
       .scroll
