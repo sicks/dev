@@ -8,12 +8,6 @@
       margin-top: 0.25rem;
       display: flex;
       justify-content: flex-end;
-
-      .icon {
-        height: 2.25rem;
-        width: 2.25rem;
-      }
-
     }
   }
 
