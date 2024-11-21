@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = content_for(:title) || @current_veneer.title
+    title = content_for(:title) || Current.veneer.title
     meta name="viewport" content="width=device-width,initial-scale=1"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta name="mobile-web-app-capable" content="yes"
@@ -24,10 +24,10 @@ html
     = stylesheet_link_tag :app, "data-turbo-track": "reload"
     = javascript_importmap_tags
 
-  = content_tag :body, class: [:layout, @current_veneer.theme]
+  = content_tag :body, class: [:layout, Current.veneer.theme]
     header
-      h1 = link_to @current_veneer.title, root_path
-      h5 = @current_veneer.subtitle
+      h1 = link_to Current.veneer.title, root_path
+      h5 = Current.veneer.subtitle
       nav
         - if authenticated?
           .veneer

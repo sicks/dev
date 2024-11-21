@@ -52,7 +52,7 @@ module Authentication
     end
 
     def set_current_veneer
-      @current_veneer = Current.veneer = if Veneer.none?
+      Current.veneer = if Veneer.none?
         Veneer.default(request.host)
       else
         Veneer.find_by_host(request.host)
