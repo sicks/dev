@@ -1,0 +1,16 @@
+.veneers.index
+  .flex.mb
+    h1 Veneers
+    = link_to inline_svg_tag("add.svg", class: :icon), new_veneer_path
+
+  - @veneers.each do |veneer|
+    .veneer.mb
+      h2 = link_to veneer.title, edit_veneer_path(veneer)
+      .host
+        = veneer.host
+      .title
+        = veneer.title
+      .subtitle
+        = veneer.subtitle
+      .theme
+        = veneer.theme

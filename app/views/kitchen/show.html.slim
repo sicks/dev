@@ -9,6 +9,15 @@
     h5 Header 5
     h6 Header 6
 
+  h2.mb Icons
+
+  .mb.flex.gap.wrap
+    = inline_svg_tag("login.svg", class: :icon)
+    = inline_svg_tag("logout.svg", class: :icon)
+    = inline_svg_tag("user.svg", class: :icon)
+    = inline_svg_tag("veneer.svg", class: :icon)
+    = inline_svg_tag("add.svg", class: :icon)
+
   h2.mb Buttons
 
   div.mb.flex.gap.wrap
@@ -22,7 +31,7 @@
       .field
         = f.label :text_field
         = f.text_field :text_field, placeholder: "placeholder text"
-      .row
+      .row.wrap
         .field.grow
           = f.label :email_field
           = f.text_field :email_field, placeholder: "some@email.com"
@@ -31,7 +40,7 @@
           = f.select :select, options_for_select(%i[one two])
         .field
           = f.label :datetime_field
-          = f.datetime_field :datetime
+          = f.datetime_field :datetime_field
       .field
         = f.label :text_area
         = f.textarea :text_area

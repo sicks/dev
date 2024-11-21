@@ -134,6 +134,13 @@ code {
   font-family: 'Roboto Mono';
 }
 
+svg.icon {
+  height: 2.25rem;
+  width: 2.25rem;
+  color: inherit;
+  fill: currentColor;
+}
+
 /* Temporary Utility Classes */
 .mb {
   margin-bottom: 1rem;

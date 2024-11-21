@@ -17,6 +17,7 @@
     width: 100%;
     text-align: center;
   }
+
   &.fill {
     flex: 1 0 auto;
     text-align: center;
