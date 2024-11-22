@@ -18,10 +18,7 @@ class KitchenController < ApplicationController
       raise ActiveRecord::RecordNotFound
     when "bad_request"
       raise ActionController::BadRequest
-    end
-
-    case params[:commit]
-    when "error"
+    when "invalid"
       raise ActiveRecord::RecordInvalid
     end
   end
