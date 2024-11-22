@@ -1,0 +1,14 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .http_code {
+    font-size: 10rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}
