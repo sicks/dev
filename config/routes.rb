@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resource :user, except: %i[show destroy]
   resources :veneers, except: :show
   resources :kitchen
+  resources :articles
 
   root to: "kitchen#show", id: :sink
 end
