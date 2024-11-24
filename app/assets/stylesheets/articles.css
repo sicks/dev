@@ -1,0 +1,44 @@
+.articles {
+  .article {
+    margin-bottom: 2rem;
+
+    .header {
+      display: flex;
+      align-items: center;
+
+      h1 {
+        flex-grow: 1;
+      }
+    }
+
+    .footer {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .tags {
+        flex-grow: 1;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        .tag {
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          background: var(--base03);
+          color: var(--base3);
+        }
+      }
+      .jump {
+        white-space: nowrap;
+      }
+    }
+
+    &:hover {
+      .footer {
+        opacity: 1;
+      }
+    }
+  }
+}

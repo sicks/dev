@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :kitchen
   resources :articles
 
-  root to: "kitchen#show", id: :sink
+  root to: "articles#index"
 end

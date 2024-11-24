@@ -1,0 +1,12 @@
+.articles.index
+  - @articles.each do |a|
+    .article
+      .header
+        h1 = link_to a.title, article_path(a)
+      .html
+        = a.html.html_safe
+      .footer
+        .tags
+          - a.tags.each do |tag|
+            .tag = tag.name
+        = link_to "Read more", article_path(a), class: :jump

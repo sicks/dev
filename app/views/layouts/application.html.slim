@@ -30,6 +30,8 @@ html
       h5 = Current.veneer.subtitle
       nav
         - if authenticated?
+          .new
+            = link_to inline_svg_tag("add.svg", class: :icon), new_article_path
           .veneer
             = link_to inline_svg_tag("veneer.svg", class: :icon), veneers_path
           .user

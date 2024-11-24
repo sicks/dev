@@ -1,0 +1,20 @@
+.articles.edit
+  h1 Edit Article
+
+  = form_with model: @article do |f|
+    .field
+      = f.label :title
+      = f.text_field :title
+    .row.wrap
+      .field.grow
+        = f.label :tag_list, "Tags"
+        = f.text_field :tag_list, value: f.object.tag_list.join(", ")
+      .field
+        = f.label :published_at
+        = f.datetime_field :published_at
+    .field
+      = f.label :markdown
+      = f.text_area :markdown
+    .actions
+      = f.submit class: :btn
+      = link_to "Delete Article", article_path(@article), data: { turbo_method: :delete }, class: %i[btn error]

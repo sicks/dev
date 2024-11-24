@@ -1,0 +1,8 @@
+.articles.show
+  .article
+    .header
+      h1 = @article.title
+      - if authenticated?
+        = link_to "Edit", edit_article_path
+    .html
+      = @article.html.html_safe

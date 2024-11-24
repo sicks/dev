@@ -3,6 +3,8 @@ module ErrorHandler
 
   included do
     rescue_from StandardError do |error|
+      raise error if Rails.env.development?
+
       @http_code = status_code
       @message = error.message
 
