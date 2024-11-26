@@ -7,6 +7,8 @@ class Article < ApplicationRecord
 
   before_save :markdown_to_html, if: :markdown_changed?
 
+  scope :published, ->{ order(published_at: :asc).where("published_at < ?", Time.current) }
+
   private
 
   def markdown_to_html
