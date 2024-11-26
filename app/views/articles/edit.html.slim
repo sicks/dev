@@ -1,7 +1,7 @@
 .articles.edit
   h1 Edit Article
 
-  = form_with model: @article do |f|
+  = form_with model: @article, data: { controller: :form } do |f|
     .field
       = f.label :title
       = f.text_field :title
