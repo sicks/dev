@@ -6,10 +6,10 @@
       = f.email_field :email_address, request: true, autofocus: true, required: true,
         placeholder: t(".email_address_placeholder"), autocomplete: :off
     .field
-      = f.password_field :password, required: true, required: true,
+      = f.password_field :password, required: true,
         placeholder: t(".password_placeholder"), maxlength: 72, autocomplete: :off
     .field
-      = f.password_field :password_confirmation, required: true, required: true,
+      = f.password_field :password_confirmation, required: true,
         placeholder: t(".password_confirmation_placeholder"), maxlength: 72, autocomplete: :off
     .actions
       = f.submit class: :btn
