@@ -10,3 +10,6 @@
           - a.tags.each do |tag|
             .tag = tag.name
         = link_to "Read more", article_path(a), class: :jump
+
+  .pagination
+    = paginate @articles

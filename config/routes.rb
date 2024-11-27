@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resource :user, except: %i[show destroy]
   resources :veneers, except: :show
   resources :kitchen
-  resources :articles
+  resources :articles, path: "/a" do
+    collection do
+      get "(/p/:page)", to: "articles#index"
+    end
+  end
 
   root to: "articles#index"
 end

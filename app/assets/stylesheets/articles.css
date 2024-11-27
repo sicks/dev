@@ -41,4 +41,17 @@
       }
     }
   }
+
+  &.index {
+    .pagination {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      .current {
+        color: var(--link);
+      }
+    }
+  }
 }
