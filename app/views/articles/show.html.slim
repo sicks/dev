@@ -2,7 +2,11 @@
   .article
     .header
       h1 = @article.title
-      - if authenticated?
-        = link_to "Edit", edit_article_path
     .html
       = @article.html.html_safe
+    .footer
+      .tags
+        - @article.tags.each do |tag|
+          .tag = tag.name
+      - if authenticated?
+        = link_to "Edit", edit_article_path(@article)

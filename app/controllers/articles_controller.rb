@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def edit
@@ -42,6 +42,6 @@ class ArticlesController < ApplicationController
   end
 
   def set_article
-    @article = Current.user.articles.find(params[:id])
+    @article = Current.user.articles.friendly.find(params[:id])
   end
 end
