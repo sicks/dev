@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   allow_unauthenticated_access only: %i[index show]
   before_action :set_article, only: %i[edit update destroy]
+  around_action :set_time_zone, only: %i[create edit update]
 
   def index
     @articles = Article.published.page(params[:page])
@@ -11,6 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    article_params[:published_at] = Time.zone.parse(article_params[:published_at])
     @article = Current.user.articles.create!(article_params)
 
     redirect_to article_path(@article), notice: "Article Created!"
@@ -24,6 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    article_params[:published_at] = Time.zone.parse(article_params[:published_at])
     @article.update!(article_params)
 
     redirect_to article_path(@article), notice: "Article Updated!"
@@ -38,10 +41,14 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :markdown, :tag_list)
+    params.require(:article).permit(:title, :markdown, :tag_list, :published_at)
   end
 
   def set_article
     @article = Current.user.articles.friendly.find(params[:id])
+  end
+
+  def set_time_zone(&block)
+    Time.use_zone("Pacific Time (US & Canada)", &block)
   end
 end
