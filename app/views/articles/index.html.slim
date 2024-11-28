@@ -1,6 +1,6 @@
 .articles.index
   - @articles.each do |a|
-    .article
+    = tag.div class: [:article, { unpublished: a.unpublished? }] do
       .header
         h1 = link_to a.title, article_path(a)
       .html

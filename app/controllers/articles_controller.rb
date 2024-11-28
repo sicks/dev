@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
   around_action :set_time_zone, only: %i[create edit update]
 
   def index
-    @articles = Article.published.page(params[:page])
+    @articles = Article.order(published_at: :desc, created_at: :desc)
+    @articles = @articles.published unless authenticated?
+    @articles = @articles.page(params[:page])
   end
 
   def new

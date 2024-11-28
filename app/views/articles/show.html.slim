@@ -1,5 +1,5 @@
 .articles.show
-  .article
+  = tag.div class: [:article, { unpublished: @article.unpublished? }] do
     .header
       h1 = @article.title
     .html

@@ -1,46 +1,14 @@
 .syntax {
   margin: 1rem 0;
-  padding: 0.25rem;
+  padding: 1rem;
   background-color: var(--base03);
   color: var(--base1);
   font-size: 0.875rem;
   position: relative;
 
-  &::before {
-    content: attr(data-lang);
-    display: block;
-    position: absolute;
-    left: 0;
-    top: -0.8125rem;
-    padding: 0.125rem 0.5rem 0;
-    background-color: var(--base03);
-    color: var(--base1);
-    border-radius: 0.25rem 0.25rem 0 0;
-  }
-
-  .gutter {
-    width: auto;
-    padding: 0 0.25rem;
-    text-align: right;
-  }
-
-  .code {
-    width: 100%;
-    padding: 0 0.25rem;
-  }
-
-  table {
-    margin: 0;
-  }
-
-  pre {
-    font-family: 'Roboto Mono';
-  }
-
   .hscroll {
     overflow-x: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--base01) transparent;
+    padding-bottom: 0.125rem;
 
     &::-webkit-scrollbar, &::-webkit-scrollbar-button {
       width: 0.3125rem;
@@ -192,4 +160,11 @@
   .vi { color: var(--color6) }
   /* Literal.Number.Integer.Long */
   .il { color: var(--color7) }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .syntax .hscroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--base01) transparent;
+  }
 }

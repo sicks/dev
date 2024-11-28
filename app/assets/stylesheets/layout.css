@@ -76,8 +76,6 @@
         padding: 3rem 1rem;
         overflow-y: auto;
         overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: var(--base2) transparent;
 
         &::-webkit-scrollbar, &::-webkit-scrollbar-button {
           width: 0.3125rem;
@@ -108,3 +106,9 @@
   }
 }
 
+@supports not selector(::-webkit-scrollbar) {
+  .layout > main .scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--base2) transparent;
+  }
+}

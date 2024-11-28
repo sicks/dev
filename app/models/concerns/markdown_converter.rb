@@ -49,28 +49,9 @@ module MarkdownConverter
     end
 
     def stream(tokens, &b)
-      last_val = nil
-      num_lines = tokens.reduce(0) { |count, (_, val)| count + (last_val = val).count("\n") }
-      formatted = @inner.format(tokens)
-      unless last_val&.end_with?("\n")
-        num_lines += 1
-        formatted << "\n"
-      end
-
-      # generate the gutter
-      formatted_line_numbers = (@start_line..(@start_line + num_lines - 1)).map do |i|
-        sprintf(@line_format, i)
-      end.join("\n") << "\n"
-
-      buffer = [%(<div class="syntax" data-lang="#{@lang}"><div class="hscroll"><table><tbody><tr>)]
-      # the "gl" class applies the style for Generic.Lineno
-      buffer << %(<td class="gutter gl">)
-      buffer << %(<pre class="lineno">#{formatted_line_numbers}</pre>)
-      buffer << %(</td>)
-      buffer << %(<td class="code"><pre>)
-      buffer << formatted
-      buffer << %(</pre></td>)
-      buffer << %(</tr></tbody></table></div></div>)
+      buffer = [%(<div class="syntax" data-lang="#{@lang}"><div class="hscroll"><pre><code>)]
+      buffer << @inner.format(tokens)
+      buffer << %(</code></pre></div></div>)
 
       yield buffer.join
     end
