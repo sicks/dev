@@ -1,14 +1,14 @@
-.syntax {
+.highlight {
   margin: 1rem 0;
   padding: 1rem;
   background-color: var(--base03);
   color: var(--base1);
-  font-size: 0.875rem;
   position: relative;
 
   .hscroll {
     overflow-x: auto;
-    padding-bottom: 0.125rem;
+    margin: 0;
+    padding-bottom: 0.25rem;
 
     &::-webkit-scrollbar, &::-webkit-scrollbar-button {
       width: 0.3125rem;
@@ -163,7 +163,7 @@
 }
 
 @supports not selector(::-webkit-scrollbar) {
-  .syntax .hscroll {
+  .highlight .hscroll {
     scrollbar-width: thin;
     scrollbar-color: var(--base01) transparent;
   }

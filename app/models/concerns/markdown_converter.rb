@@ -26,34 +26,18 @@ module MarkdownConverter
   private
 
   def renderer
-    @renderer ||= HTMLWithCodeBlocks.new(RENDER_OPTIONS)
+    HTMLWithCodeBlocks.new(RENDER_OPTIONS)
   end
 
   def converter
-    @converter ||= Redcarpet::Markdown.new(renderer, EXTENSIONS)
+    Redcarpet::Markdown.new(renderer, EXTENSIONS)
   end
 
   class HTMLWithCodeBlocks < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
 
     def rouge_formatter(lexer)
-      ArticleFormatter.new(lang: lexer.tag)
-    end
-  end
-
-  class ArticleFormatter < Rouge::Formatters::HTMLTable
-    def initialize(lang:)
-      @lang = lang
-      @formatter = Rouge::Formatters::HTML.new
-      super(@formatter, {})
-    end
-
-    def stream(tokens, &b)
-      buffer = [ %(<div class="syntax" data-lang="#{@lang}"><div class="hscroll"><pre><code>) ]
-      buffer << @inner.format(tokens)
-      buffer << %(</code></pre></div></div>)
-
-      yield buffer.join
+      Rouge::Formatters::HTMLLegacy.new(css_class: "hscroll")
     end
   end
 end
