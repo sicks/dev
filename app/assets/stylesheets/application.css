@@ -23,7 +23,7 @@
   --link:    #268bd2;
   --info:    #268bd2;
   --success: #2aa198;
-  --alert: #b58900;
+  --alert:   #b58900;
   --error:   #cb4b16;
 }
 
@@ -123,11 +123,6 @@ p {
   line-height: 1.8125rem;
   margin-bottom: 1.875rem;
   margin: 1rem 0;
-}
-
-pre {
-  width: 100%;
-  font-size: 1.0625rem;
 }
 
 code {

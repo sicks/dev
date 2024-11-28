@@ -1,0 +1,81 @@
+.articles {
+  .article {
+    margin-bottom: 2rem;
+
+    .header {
+      display: flex;
+      align-items: center;
+
+      h1 {
+        flex-grow: 1;
+      }
+    }
+
+    .html {
+      :not(pre) > code {
+        display: inline-block;
+        background: var(--base02);
+        color: var(--base3);
+        font-size: 0.875rem;
+        line-height: 1.4;
+        padding: 0 0.25rem;
+        border-radius: 4px;
+      }
+    }
+
+    .footer {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .tags {
+        flex-grow: 1;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        .tag {
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          background: var(--base03);
+          color: var(--base3);
+        }
+      }
+      .jump {
+        white-space: nowrap;
+      }
+    }
+
+    &:hover {
+      .footer {
+        opacity: 1;
+      }
+    }
+
+    &.unpublished {
+      .header {
+        h1, a {
+          color: var(--alert);
+        }
+
+        a:hover {
+          color: var(--color8);
+        }
+      }
+    }
+  }
+
+  &.index {
+    .pagination {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+
+      .current {
+        color: var(--link);
+      }
+    }
+  }
+}

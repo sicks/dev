@@ -40,7 +40,7 @@
     > header {
       display: flex;
       align-items: center;
-      flex: 0 0 33vw;
+      flex: 0 0 33.33333vw;
       order: 2;
       flex-direction: column;
       justify-content: center;
@@ -52,13 +52,13 @@
       }
 
       > nav {
-        .auth, .user, .veneer {
+        .auth, .user, .veneer, .new {
           opacity: 0;
           transition: opacity 0.3s ease;
         }
 
         &:hover {
-          .auth, .user, .veneer {
+          .auth, .user, .veneer, .new {
             opacity: 1;
           }
         }
@@ -76,8 +76,6 @@
         padding: 3rem 1rem;
         overflow-y: auto;
         overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: var(--base2) transparent;
 
         &::-webkit-scrollbar, &::-webkit-scrollbar-button {
           width: 0.3125rem;
@@ -100,11 +98,17 @@
   }
 }
 
-@media only screen and (min-width: 114.75em) {
+@media only screen and (min-width: 120.75em) {
   .layout {
     > header {
-      flex: 0 0 calc((100% - 38.25rem) / 2);
+      flex: 0 0 calc((100% - 40.25rem) / 2);
     }
   }
 }
 
+@supports not selector(::-webkit-scrollbar) {
+  .layout > main .scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--base2) transparent;
+  }
+}

@@ -1,0 +1,15 @@
+.articles.index
+  - @articles.each do |a|
+    = tag.div class: [:article, { unpublished: a.unpublished? }] do
+      .header
+        h1 = link_to a.title, article_path(a)
+      .html
+        = sanitize a.html.split("<!-- truncate -->").first
+      .footer
+        .tags
+          - a.tags.each do |tag|
+            .tag = tag.name
+        = link_to "Read more", article_path(a), class: :jump
+
+  .pagination
+    = paginate @articles

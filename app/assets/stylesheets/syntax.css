@@ -1,0 +1,170 @@
+.highlight {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: var(--base03);
+  color: var(--base1);
+  position: relative;
+
+  .hscroll {
+    overflow-x: auto;
+    margin: 0;
+    padding-bottom: 0.25rem;
+
+    &::-webkit-scrollbar, &::-webkit-scrollbar-button {
+      width: 0.3125rem;
+      height: 0.3125rem;
+    }
+
+    &::-webkit-scrollbar-track, &::-webkit-scrollbar-track-piece {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--base01);
+    }
+  }
+
+  /* Comment */
+  .c { color: var(--base01) }
+  /* Error */
+  .err { color: var(--base1) }
+  /* Generic */
+  .g { color: var(--base1) }
+  /* Keyword */
+  .k { color: var(--color8) }
+  /* Literal */
+  .l { color: var(--base1) }
+  /* Name */
+  .n { color: var(--base1) }
+  /* Operator */
+  .o { color: var(--color8) }
+  /* Other */
+  .x { color: var(--color2) }
+  /* Punctuation */
+  .p { color: var(--base1) }
+  /* Comment.Multiline */
+  .cm { color: var(--base01) }
+  /* Comment.Preproc */
+  .cp { color: var(--color8) }
+  /* Comment.Single */
+  .c1 { color: var(--base01) }
+  /* Comment.Special */
+  .cs { color: var(--color8) }
+  /* Generic.Deleted */
+  .gd { color: var(--color7) }
+  /* Generic.Emph */
+  .ge { color: var(--base1); font-style: italic }
+  /* Generic.Error */
+  .gr { color: var(--color3) }
+  /* Generic.Heading */
+  .gh { color: var(--color2) }
+  /* Generic.Inserted */
+  .gi { color: var(--color8) }
+  /* Generic.Output */
+  .go { color: var(--base1) }
+  /* Generic.Prompt */
+  .gp { color: var(--base1) }
+  /* Generic.Strong */
+  .gs { color: var(--base1); font-weight: bold }
+  /* Generic.Subheading */
+  .gu { color: var(--color2) }
+  /* Generic.Traceback */
+  .gt { color: var(--base1) }
+  /* Keyword.Constant */
+  .kc { color: var(--color2) }
+  /* Keyword.Declaration */
+  .kd { color: var(--color6) }
+  /* Keyword.Namespace */
+  .kn { color: var(--color8) }
+  /* Keyword.Pseudo */
+  .kp { color: var(--color8) }
+  /* Keyword.Reserved */
+  .kr { color: var(--color6) }
+  /* Keyword.Type */
+  .kt { color: var(--color3) }
+  /* Literal.Date */
+  .ld { color: var(--base1) }
+  /* Literal.Number */
+  .m { color: var(--color7) }
+  /* Literal.String */
+  .s { color: var(--color7) }
+  /* Name.Attribute */
+  .na { color: var(--base1) }
+  /* Name.Builtin */
+  .nb { color: var(--color1) }
+  /* Name.Class */
+  .nc { color: var(--color6) }
+  /* Name.Constant */
+  .no { color: var(--color2) }
+  /* Name.Decorator */
+  .nd { color: var(--color6) }
+  /* Name.Entity */
+  .ni { color: var(--color2) }
+  /* Name.Exception */
+  .ne { color: var(--color2) }
+  /* Name.Function */
+  .nf { color: var(--color6) }
+  /* Name.Label */
+  .nl { color: var(--base1) }
+  /* Name.Namespace */
+  .nn { color: var(--base1) }
+  /* Name.Other */
+  .nx { color: var(--base1) }
+  /* Name.Property */
+  .py { color: var(--base1) }
+  /* Name.Tag */
+  .nt { color: var(--color6) }
+  /* Name.Variable */
+  .nv { color: var(--color6) }
+  /* Operator.Word */
+  .ow { color: var(--color8) }
+  /* Text.Whitespace */
+  .w { color: var(--base1) }
+  /* Literal.Number.Float */
+  .mf { color: var(--color7) }
+  /* Literal.Number.Hex */
+  .mh { color: var(--color7) }
+  /* Literal.Number.Integer */
+  .mi { color: var(--color7) }
+  /* Literal.Number.Oct */
+  .mo { color: var(--color7) }
+  /* Literal.String.Backtick */
+  .sb { color: var(--base01) }
+  /* Literal.String.Char */
+  .sc { color: var(--color7) }
+  /* Literal.String.Doc */
+  .sd { color: var(--base1) }
+  /* Literal.String.Double */
+  .s2 { color: var(--color7) }
+  /* Literal.String.Escape */
+  .se { color: var(--color2) }
+  /* Literal.String.Heredoc */
+  .sh { color: var(--base1) }
+  /* Literal.String.Interpol */
+  .si { color: var(--color7) }
+  /* Literal.String.Other */
+  .sx { color: var(--color7) }
+  /* Literal.String.Regex */
+  .sr { color: var(--color3) }
+  /* Literal.String.Single */
+  .s1 { color: var(--color7) }
+  /* Literal.String.Symbol */
+  .ss { color: var(--color7) }
+  /* Name.Builtin.Pseudo */
+  .bp { color: var(--color6) }
+  /* Name.Variable.Class */
+  .vc { color: var(--color6) }
+  /* Name.Variable.Global */
+  .vg { color: var(--color6) }
+  /* Name.Variable.Instance */
+  .vi { color: var(--color6) }
+  /* Literal.Number.Integer.Long */
+  .il { color: var(--color7) }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .highlight .hscroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--base01) transparent;
+  }
+}

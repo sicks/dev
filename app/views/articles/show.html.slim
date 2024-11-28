@@ -1,0 +1,12 @@
+.articles.show
+  = tag.div class: [:article, { unpublished: @article.unpublished? }] do
+    .header
+      h1 = @article.title
+    .html
+      = sanitize @article.html
+    .footer
+      .tags
+        - @article.tags.each do |tag|
+          .tag = tag.name
+      - if authenticated?
+        = link_to "Edit", edit_article_path(@article)
