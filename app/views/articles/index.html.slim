@@ -4,7 +4,7 @@
       .header
         h1 = link_to a.title, article_path(a)
       .html
-        = a.html.split("<!-- truncate -->").first.html_safe
+        = sanitize a.html.split("<!-- truncate -->").first
       .footer
         .tags
           - a.tags.each do |tag|

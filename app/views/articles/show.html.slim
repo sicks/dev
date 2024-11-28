@@ -3,7 +3,7 @@
     .header
       h1 = @article.title
     .html
-      = @article.html.html_safe
+      = sanitize @article.html
     .footer
       .tags
         - @article.tags.each do |tag|
