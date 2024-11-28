@@ -30,21 +30,21 @@ RSpec.describe Article, type: :model do
 
       context "with one tag" do
         it "includes articles with that tag" do
-          expect(Article.with_tags(["foo"])).to include(foo, foo_bar)
+          expect(Article.with_tags([ "foo" ])).to include(foo, foo_bar)
         end
 
         it "does not include articles without that tag" do
-          expect(Article.with_tags(["foo"])).not_to include(no_tags, bar_baz)
+          expect(Article.with_tags([ "foo" ])).not_to include(no_tags, bar_baz)
         end
       end
 
       context "with multiple tags" do
         it "includes articles with either tag" do
-          expect(Article.with_tags(["foo", "bar"])).to include(foo, foo_bar, bar_baz)
+          expect(Article.with_tags([ "foo", "bar" ])).to include(foo, foo_bar, bar_baz)
         end
 
         it "does not include articles without any of those tag" do
-          expect(Article.with_tags(["bar", "baz"])).not_to include(no_tags, foo)
+          expect(Article.with_tags([ "bar", "baz" ])).not_to include(no_tags, foo)
         end
       end
     end

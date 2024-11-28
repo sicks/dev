@@ -6,7 +6,7 @@ module MarkdownConverter
   RENDER_OPTIONS = {
     with_toc_data: true,
     hard_wrap: true,
-    link_attributes: {rel: :nofollow}
+    link_attributes: { rel: :nofollow }
   }.freeze
 
   EXTENSIONS = {
@@ -49,7 +49,7 @@ module MarkdownConverter
     end
 
     def stream(tokens, &b)
-      buffer = [%(<div class="syntax" data-lang="#{@lang}"><div class="hscroll"><pre><code>)]
+      buffer = [ %(<div class="syntax" data-lang="#{@lang}"><div class="hscroll"><pre><code>) ]
       buffer << @inner.format(tokens)
       buffer << %(</code></pre></div></div>)
 
