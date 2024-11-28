@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   belongs_to :author, class_name: "User"
 
   scope :published, ->{ where("published_at < ?", Time.current) }
+  scope :with_tags, ->(tags) { joins(:tags).where(tags: { name: tags }) }
 
   before_save :markdown_to_html, if: :markdown_changed?
 
