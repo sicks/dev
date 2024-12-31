@@ -13,7 +13,7 @@ class Article < ApplicationRecord
   friendly_id :title, use: :slugged
 
   def self.published_tags
-    tag_ids = joins(:taggings).published.distinct.pluck(taggings: [:tag_id])
+    tag_ids = joins(:taggings).published.distinct.pluck(taggings: [ :tag_id ])
     ActsAsTaggableOn::Tag.order(taggings_count: :desc).where(id: tag_ids)
   end
 
