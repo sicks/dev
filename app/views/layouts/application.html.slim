@@ -26,6 +26,8 @@ html
 
   = content_tag :body, class: [:layout, Current.veneer.theme]
     header
+      = tag.div class: :toggle, data: { controller: :toggle, toggle_class_value: :open } do
+        = inline_svg_tag("add.svg", class: :icon)
       h1 = link_to Current.veneer.title, root_path
       h5 = Current.veneer.subtitle
       nav
@@ -44,7 +46,6 @@ html
       .tag-filter
         - @menu_tags.each do |tag|
           = link_to tag.name, tagged_articles_path(tags: CGI.escape(tag.name))
-
 
     main
       .scroll
