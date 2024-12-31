@@ -4,8 +4,10 @@ class ArticlesController < ApplicationController
   around_action :set_time_zone, only: %i[create edit update]
 
   def index
+    @tags = params.has_key?(:tags) ? params[:tags].split("/").map{ |tag| CGI.unescape(tag) } : []
     @articles = Article.order(published_at: :desc, created_at: :desc)
     @articles = @articles.published unless authenticated?
+    @articles = @articles.with_tags(@tags) if @tags.any?
     @articles = @articles.page(params[:page])
   end
 

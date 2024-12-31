@@ -41,6 +41,10 @@ html
         - else
           .auth
             = link_to inline_svg_tag("login.svg", class: :icon), new_session_path
+      .tag-filter
+        - @menu_tags.each do |tag|
+          = link_to tag.name, tagged_articles_path(tags: CGI.escape(tag.name))
+
 
     main
       .scroll

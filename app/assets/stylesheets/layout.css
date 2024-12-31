@@ -9,6 +9,11 @@
       display: flex;
       justify-content: flex-end;
     }
+
+    .tag-filter {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   > main {

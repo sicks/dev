@@ -12,6 +12,11 @@ class Article < ApplicationRecord
   acts_as_taggable_on :tags
   friendly_id :title, use: :slugged
 
+  def self.published_tags
+    tag_ids = joins(:taggings).published.distinct.pluck(taggings: [:tag_id])
+    ActsAsTaggableOn::Tag.order(taggings_count: :desc).where(id: tag_ids)
+  end
+
   def unpublished?
     return true unless published_at
 
