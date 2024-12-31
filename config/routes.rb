@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :articles, path: "/a" do
     collection do
       get "(/p/:page)", to: "articles#index"
+      get "/t/:tags(/p/:page)", to: "articles#index", constraints: { tags: /\S+/ }, as: :tagged
     end
   end
 
