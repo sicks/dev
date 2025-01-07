@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_27_040706) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_01_104027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "article_veneers", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "veneer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_veneers_on_article_id"
+    t.index ["veneer_id"], name: "index_article_veneers_on_veneer_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.bigint "author_id"
@@ -96,6 +105,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_27_040706) do
     t.index ["host"], name: "index_veneers_on_host", unique: true
   end
 
+  add_foreign_key "article_veneers", "articles"
+  add_foreign_key "article_veneers", "veneers"
   add_foreign_key "sessions", "users"
   add_foreign_key "taggings", "tags"
 end

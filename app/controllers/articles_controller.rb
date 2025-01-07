@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   def index
     @tags = params.has_key?(:tags) ? params[:tags].split("/").map { |tag| CGI.unescape(tag) } : []
     @articles = Article.order(published_at: :desc, created_at: :desc)
+    @articles = @articles.for_host(Current.host) unless authenticated?
     @articles = @articles.published unless authenticated?
     @articles = @articles.with_tags(@tags) if @tags.any?
     @articles = @articles.page(params[:page])
@@ -45,7 +46,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :markdown, :tag_list, :published_at)
+    params.require(:article).permit(:title, :markdown, :tag_list, :published_at, veneer_ids: [])
   end
 
   def set_article
