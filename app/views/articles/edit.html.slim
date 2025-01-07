@@ -15,6 +15,13 @@
     .field
       = f.label :markdown
       = f.text_area :markdown
+    .row
+      h5 Display on:
+      - Veneer.find_each do |v|
+        .field
+          label
+            = f.check_box :veneer_ids, { multiple: true }, v.id, ""
+            span = v.host
     .actions
       = f.submit class: :btn
       = link_to "Delete Article", article_path(@article), data: { turbo_method: :delete }, class: %i[btn error]

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     @menu_tags = if authenticated?
       ActsAsTaggableOn::Tag.order(taggings_count: :desc).where("taggings_count > 0")
     else
-      Article.published_tags
+      Article.published_tags(Current.host)
     end
   end
 end
