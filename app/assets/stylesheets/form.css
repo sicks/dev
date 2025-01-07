@@ -75,7 +75,7 @@ form {
   [type=checkbox] {
     appearance: none;
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
     font-family: 'Font Awesome 6 Free';
     color: inherit;
     font-weight: 600;
@@ -83,11 +83,23 @@ form {
     margin: 0 0.375rem 0 0;
 
     &::before {
-      content: '\f0c8';
+      content: ' ';
+      display: block;
+      background: var(--base3);
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 0.5rem;
+      border: 0.25rem solid currentColor;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     &:checked::before {
-      content: '\f14a';
+      background: var(--success);
+      border-color: var(--success);
+    }
+
+    & + span {
+      vertical-align: middle;
     }
   }
 
