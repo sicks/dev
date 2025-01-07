@@ -3,8 +3,8 @@ class Article < ApplicationRecord
   include MarkdownConverter
 
   belongs_to :author, class_name: "User"
-  has_many :hosts, class_name: "ArticleVeneer"
-  has_many :veneers, through: :hosts
+  has_many :article_veneers
+  has_many :veneers, through: :article_veneers
 
   scope :published, -> { where("published_at < ?", Time.current) }
   scope :with_tags, ->(tags) { joins(:tags).where(tags: { name: tags }) }
