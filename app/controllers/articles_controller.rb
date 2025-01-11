@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article_params[:published_at] = Time.zone.parse(article_params[:published_at])
     @article = Current.user.articles.create!(article_params)
 
     redirect_to article_path(@article), notice: "Article Created!"
@@ -31,7 +30,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    article_params[:published_at] = Time.zone.parse(article_params[:published_at])
     @article.update!(article_params)
 
     redirect_to article_path(@article), notice: "Article Updated!"
